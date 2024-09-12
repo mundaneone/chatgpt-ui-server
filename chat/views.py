@@ -236,7 +236,13 @@ MODELS = {
         'max_tokens': 131072,
         'max_prompt_tokens': 123072,
         'max_response_tokens': 8000,
-    }    
+    },    
+    'gpt-4o-mini': {
+        'name': 'gpt-4o-mini',
+        'max_tokens': 131072,
+        'max_prompt_tokens': 123072,
+        'max_response_tokens': 8000,
+    }
 }
 
 
@@ -824,7 +830,9 @@ def num_tokens_from_text(text, model="gpt-3.5-turbo-0301"):
         "gpt-3.5-turbo-16k-0613",
         "gpt-4-32k-0613",
         "gpt-4-1106-preview",
-        "gpt-4o"
+        "gpt-4o",
+        "gpt-4o-mini"
+
     ]:
         raise NotImplementedError(
             f"num_tokens_from_text() is not implemented for model {model}.")
@@ -852,7 +860,8 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
         "gpt-3.5-turbo-16k-0613",
         "gpt-4-32k-0613",
         "gpt-4-1106-preview",
-        "gpt-4o"
+        "gpt-4o",
+        "gpt-4o-mini"
     ]:
         tokens_per_message = 4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
         tokens_per_name = -1    # if there's a name, the role is omitted
